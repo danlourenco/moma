@@ -80,6 +80,10 @@ database_id = "270cbedd-aa0a-44f0-83e1-4ec001bb6c01"
 # binding = "MY_KV_NAMESPACE"
 # id = "<PREVIEW_NAMESPACE_ID>"
 
+[[env.preview.r2_buckets]]
+binding = "BUCKET"
+bucket_name = "preview-moma-gallery"
+
 [[env.preview.d1_databases]]
 binding = "DB"
 database_name = "preview-moma-gallery"
