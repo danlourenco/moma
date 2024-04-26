@@ -30,6 +30,11 @@ pages_build_output_dir = "./dist"
 # database_name = "my-database"
 # database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "preview-moma-gallery"
+database_id = "270cbedd-aa0a-44f0-83e1-4ec001bb6c01"
+
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
 # Docs: https://developers.cloudflare.com/workers/runtime-apis/durable-objects
@@ -74,6 +79,11 @@ pages_build_output_dir = "./dist"
 # [[env.preview.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "<PREVIEW_NAMESPACE_ID>"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "preview-moma-gallery"
+database_id = "270cbedd-aa0a-44f0-83e1-4ec001bb6c01"
 
 ######## PRODUCTION environment config ########
 
