@@ -2,7 +2,11 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Libre Franklin", "sans-serif"],
+      },
+    },
   },
   daisyui: {
     themes: [],

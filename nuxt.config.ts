@@ -6,5 +6,16 @@ export default defineNuxtConfig({
     preset: "cloudflare-pages",
   },
 
-  modules: ["nitro-cloudflare-dev", "@nuxtjs/tailwindcss"],
+  modules: [
+    "nitro-cloudflare-dev",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+  ],
+
+  googleFonts: {
+    families: {
+      Inter: true,
+      "Libre+Franklin": true,
+    },
+  },
 });
