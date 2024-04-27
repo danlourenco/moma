@@ -9,9 +9,13 @@
     "preview": "npm run build && wrangler pages dev",
     "postinstall": "nuxt prepare",
     "deploy": "npm run build && wrangler pages deploy",
+    "db:bootstrap:local": "npx wrangler d1 execute preview-moma-gallery --local --file=./schema.sql",
+    "db:bootstrap:preview": "npx wrangler d1 execute preview-moma-gallery --remote --file=./schema.sql",
+    "db:validate": "npx wrangler d1 execute preview-moma-gallery --local --command='SELECT * FROM exhibits'",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.3",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "ai": "^3.0.34",
     "nuxt": "^3.11.2",
