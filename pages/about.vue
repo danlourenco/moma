@@ -7,6 +7,7 @@
         alt="RA Lourenço demonstrating holding up his artwork and smiling"
         sizes="30vw sm:50vw md:400px"
         :modifiers="{ rotate: 90 }"
+        class="-rotate-1 drop-shadow-2xl"
       />
       <p>
         The Museum of Munchkin Art is a collection of art created by munchkins.

@@ -18,8 +18,15 @@
       </div>
     </nav>
     <!-- Main container -->
-    <main class="grow p-6 bg-slate-300">
+    <main class="grow p-6">
       <slot />
     </main>
   </div>
 </template>
+
+<style scoped>
+ul .router-link-active {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+</style>
