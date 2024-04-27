@@ -5,8 +5,9 @@
     <nav class="navbar">
       <div class="flex-1">
         <NuxtLink to="/" class="btn btn-ghost text-xl"
-          >Museum of Munchkin Art</NuxtLink
-        >
+          >MoMA |
+          <span class="text-gray-500 text-xs">Museum of Munchkin Art</span>
+        </NuxtLink>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">

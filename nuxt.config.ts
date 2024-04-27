@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "nitro-cloudflare-dev",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
+    "@nuxt/image"
   ],
 
   googleFonts: {
