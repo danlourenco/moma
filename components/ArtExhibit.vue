@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { SpeakerWaveIcon } from "@heroicons/vue/24/solid";
 import type { Exhibit } from "~/types";
 
 interface Props {
@@ -51,23 +50,6 @@ const toggleAudio = () => {
         :year="props.exhibitData.year"
         :details="props.exhibitData.details"
       />
-      <!-- <div>
-        <h2 class="font-serif text-2xl text-gray-800">
-          {{ props.exhibitData.title }}
-          <button @click="toggleAudio">
-            <SpeakerWaveIcon
-              class="size-4 text-slate-600"
-              :class="isPlaying ? 'animate-pulse' : ''"
-            />
-          </button>
-        </h2>
-        <p>{{ props.exhibitData.artist_statement }}</p>
-        <audio
-          v-if="srcUrls.audio"
-          :src="srcUrls.audio"
-          ref="audioPlayer"
-        ></audio>
-      </div> -->
     </div>
   </section>
 </template>
