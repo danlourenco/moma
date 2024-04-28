@@ -10,8 +10,14 @@ export default defineNuxtConfig({
     "nitro-cloudflare-dev",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
-    "@nuxt/image"
+    "@nuxt/image",
+    "@formkit/nuxt",
   ],
+
+  formkit: {
+    // Experimental support for auto loading (see note):
+    autoImport: true,
+  },
 
   googleFonts: {
     families: {
