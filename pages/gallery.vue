@@ -1,8 +1,21 @@
 <script setup lang="ts">
 import type { ExhibitsApiResponse } from "~/types/index";
 import { ArrowRightIcon } from "@heroicons/vue/24/solid";
+import { Howl } from "howler";
+
+var sound = new Howl({
+  src: ["cello_suite.mp3"],
+  html5: true,
+  volume: 0.25,
+  loop: true,
+  autoplay: true,
+});
 
 const { data, pending, error } = useFetch<ExhibitsApiResponse>("/api/exhibit");
+
+onMounted(() => {
+  sound.play();
+});
 </script>
 <template>
   <div v-if="pending">Loading</div>

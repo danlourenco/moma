@@ -5,7 +5,7 @@ interface Props {
   artist: string;
   audio?: string;
   title: string;
-  year?: string;
+  year?: Number | string;
   medium?: string;
   details?: string;
   statement?: string;
@@ -26,9 +26,7 @@ const toggleAudio = () => {
 };
 </script>
 <template>
-  <div
-    class="p-4 font-sans border border-gray-300 shadow-2xl my-shadow bg-white"
-  >
+  <div class="p-4 font-sans border bg-white shadow-md">
     <p class="text-lg mb-1">
       <span class="font-bold">{{ props.artist }}</span>
     </p>
