@@ -4,11 +4,17 @@ const { data, pending, error } = useFetch<ExhibitsApiResponse>("/api/exhibit");
 </script>
 <template>
   <div v-if="pending">Loading</div>
-  <section v-else>
-    <ArtExhibit
-      v-for="exhibit in data.results"
-      :exhibitData="exhibit"
-      :key="exhibit.id"
-    />
-  </section>
+  <div v-else-if="error">{{ error.message }}</div>
+  <div v-else>
+    <template v-if="data?.results.length">
+      <ArtExhibit
+        v-for="exhibit in data.results"
+        :exhibitData="exhibit"
+        :key="exhibit.id"
+      />
+    </template>
+    <template v-else>
+      <p>No exhibits found</p>
+    </template>
+  </div>
 </template>
