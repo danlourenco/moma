@@ -8,6 +8,7 @@
         sizes="30vw sm:50vw md:400px"
         :modifiers="{ rotate: 90 }"
         class="-rotate-1 drop-shadow-2xl"
+        preload
       />
       <p>
         The Museum of Munchkin Art is a collection of art created by munchkins.
