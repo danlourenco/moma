@@ -53,7 +53,10 @@ const toggleAudio = () => {
         <h2 class="font-serif text-2xl text-gray-800">
           {{ props.exhibitData.title }}
           <button @click="toggleAudio">
-            <SpeakerWaveIcon class="size-4 text-slate-700" />
+            <SpeakerWaveIcon
+              class="size-4 text-slate-600"
+              :class="isPlaying ? 'animate-pulse' : ''"
+            />
           </button>
         </h2>
         <p>{{ props.exhibitData.artist_statement }}</p>
