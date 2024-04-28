@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { ExhibitsApiResponse } from "~/types/index";
+import { ArrowRightIcon } from "@heroicons/vue/24/solid";
+
 const { data, pending, error } = useFetch<ExhibitsApiResponse>("/api/exhibit");
 </script>
 <template>
@@ -9,6 +11,17 @@ const { data, pending, error } = useFetch<ExhibitsApiResponse>("/api/exhibit");
     v-else
     class="scroll-smooth overflow-x-scroll snap-x snap-mandatory flex h-full"
   >
+    <section
+      class="flex flex-col justify-center items-center gap-8 min-w-full snap-start overflow-y-hidden lg:px-32"
+    >
+      <div class="flex flex-row gap-4 justify-center items-center">
+        <div>
+          <h1 class="text-3xl">Welcome to the MoMA Gallery</h1>
+          <p>Scroll right to view our exhibits.</p>
+        </div>
+        <ArrowRightIcon class="size-8 text-slate-600 animate-pulse" />
+      </div>
+    </section>
     <template v-if="data?.results.length">
       <ArtExhibit
         v-for="exhibit in data.results"
