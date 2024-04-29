@@ -14,6 +14,7 @@ export default defineEventHandler(async (event) => {
     model: "gpt-4-vision-preview",
     stream: false,
     max_tokens: 1000,
+    temperature: 0.9,
     messages: [
       {
         role: "system",
