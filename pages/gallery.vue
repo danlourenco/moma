@@ -8,7 +8,7 @@ var sound = new Howl({
   html5: true,
   volume: 0.25,
   loop: true,
-  autoplay: true,
+  autoplay: false,
 });
 
 const { data, pending, error } = useFetch<ExhibitsApiResponse>("/api/exhibit");
