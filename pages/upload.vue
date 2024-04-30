@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Howl } from "howler";
+import ExhibitDetailsForm from "~/components/ExhibitDetailsForm.vue";
 
 var sound = new Howl({
   src: ["jeopardy.mp3"],
@@ -17,6 +18,7 @@ const artistStatementRequestInFlight = ref(false);
 const audioRequestInFlight = ref(false);
 
 const artistStatement = ref<undefined | string>(undefined);
+
 const title = ref<undefined | string>(undefined);
 const audioSrc = ref("");
 
@@ -62,103 +64,26 @@ onMounted(() => {
     <main class="flex-1">
       <FormKit type="form" :actions="false">
         <FormKit type="multi-step" tab-style="progress">
-          <FormKit type="step" name="artistInfo">
-            <div class="mb-12">
-              <FormKit
-                type="text"
-                name="artistName"
-                label="Artist name"
-                validation="required"
-              />
-              <FormKit
-                type="number"
-                name="artistBirthYear"
-                label="Artist Birth Year"
-                min="1900"
-                max="2024"
-              />
-            </div>
-          </FormKit>
-          <FormKit type="step" name="exhibitInfo">
-            <div class="mb-12">
-              <FormKit
-                id="imageUpload"
-                type="file"
-                label="Select an image"
-                name="image"
-                multiple="false"
-                accept=".jpg,.jpeg,.png"
-                validation="required"
-              />
-              <Transition v-if="selectedImage">
-                <button
-                  type="button"
-                  :disabled="!selectedImage || artistStatementRequestInFlight"
-                  @click="generateArtistStatement"
-                  class="btn btn-primary mb-2"
-                >
-                  {{
-                    artistStatementRequestInFlight
-                      ? "Generating, please wait..."
-                      : "Generate Artist Statement"
-                  }}
-                </button>
-              </Transition>
-
-              <FormKit
-                type="text"
-                name="Title"
-                label="Title"
-                v-model="title"
-                validation="required"
-              />
-              <FormKit
-                type="textarea"
-                v-model="artistStatement"
-                name="artistStatement"
-                label="Artist Statement"
-                validation="required"
-              />
-
-              <Transition v-if="artistStatement">
-                <button
-                  type="button"
-                  :disabled="!artistStatement || audioRequestInFlight"
-                  @click="generateAudio"
-                  class="btn btn-primary mb-2"
-                >
-                  {{
-                    audioRequestInFlight
-                      ? "Generating Audio, please wait..."
-                      : "Generate Audio"
-                  }}
-                </button>
-              </Transition>
-            </div>
-          </FormKit>
-
-          <FormKit type="step" name="review">
-            <StepThree />
-
-            <!-- using step slot for submit button-->
-            <template #stepNext>
-              <FormKit type="submit" />
-            </template>
-          </FormKit>
+          <ArtistInfoForm />
+          <ExhibitDetailsForm />
+          <ArtistStatementForm />
         </FormKit>
       </FormKit>
     </main>
     <aside class="flex-1">
-      <ArtFrame :src="imageUrl" />
-      <p>{{ title }}</p>
-      <audio
-        name="audio"
-        v-show="audioSrc"
-        ref="audioEl"
-        controls
-        :src="audioSrc"
-        class="mt-20"
-      ></audio>
+      <div class="flex flex-col gap-8">
+        <ArtFrame :src="imageUrl" />
+        <ArtLabel
+          v-show="artistName"
+          :artist="artistName"
+          :artistBirthYear="artistBirthYear"
+          :title="title"
+          :audio="audioSrc"
+          :medium="medium"
+          :details="details"
+          :statement="artistStatement"
+        />
+      </div>
     </aside>
   </div>
 </template>
