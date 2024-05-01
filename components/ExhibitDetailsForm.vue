@@ -1,6 +1,17 @@
 <script setup lang="ts">
-const medium = ref("");
-const details = ref("");
+const formStore = useFormStore();
+
+onMounted(() => {
+  const imageUploadNode = getNode("imageUpload");
+  if (!imageUploadNode) return;
+
+  imageUploadNode.on("commit", ({ payload }) => {
+    formStore.selectedImage = payload[0].file;
+    // const file = payload[0].file;
+    // selectedImage.value = file;
+    // toBase64(file).then((res) => (selectedImageDataUrl.value = res));
+  });
+});
 </script>
 <template>
   <FormKit type="step" name="exhibitDetails">
@@ -14,8 +25,18 @@ const details = ref("");
         accept=".jpg,.jpeg,.png"
         validation="required"
       />
-      <FormKit type="text" name="medium" label="Medium" v-model="medium" />
-      <FormKit type="text" name="details" label="Details" v-model="details" />
+      <FormKit
+        type="text"
+        name="medium"
+        label="Medium"
+        v-model="formStore.medium"
+      />
+      <FormKit
+        type="text"
+        name="details"
+        label="Details"
+        v-model="formStore.details"
+      />
     </div>
   </FormKit>
 </template>

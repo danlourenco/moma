@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxt/image",
     "@formkit/nuxt",
+    "@pinia/nuxt",
   ],
 
   formkit: {
