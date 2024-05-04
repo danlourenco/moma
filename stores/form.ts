@@ -1,13 +1,25 @@
 import { defineStore } from "pinia";
 
+interface State {
+  artistStatementRequestInFlight: boolean;
+  audioRequestInFlight: boolean;
+  artistName: string;
+  artistBirthYear: string;
+  audio?: File;
+  medium?: string;
+  details?: string;
+  title: string;
+  artistStatement: string;
+  selectedImage: File | null;
+}
 export const useFormStore = defineStore("form", {
-  state: () => {
+  state: (): State => {
     return {
       artistStatementRequestInFlight: false,
       audioRequestInFlight: false,
       artistName: "",
       artistBirthYear: "",
-      audio: "",
+      audio: undefined,
       medium: "",
       details: "",
       title: "",
@@ -15,7 +27,14 @@ export const useFormStore = defineStore("form", {
       selectedImage: null,
     };
   },
-  getters: {},
+  getters: {
+    audioSrc: (state) => {
+      if (state.audio) {
+        return URL.createObjectURL(state.audio);
+      }
+      return undefined;
+    },
+  },
   actions: {
     async generateArtistStatement() {
       if (!this.selectedImage) {
@@ -45,7 +64,9 @@ export const useFormStore = defineStore("form", {
           method: "POST",
           body: JSON.stringify({ text: this.artistStatement }),
         });
-        this.audio = URL.createObjectURL(res);
+        this.audio = new File([res as unknown as string], "audio.mp3", {
+          type: "audio/mp3",
+        });
       } catch (e) {
         console.error(e);
       } finally {

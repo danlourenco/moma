@@ -6,12 +6,36 @@ const imageObjectUrl = computed(() => {
     ? URL.createObjectURL(formStore.selectedImage)
     : undefined;
 });
+
+const handleFormSubmit = async (data) => {
+  console.log(data);
+  const formData = new FormData();
+  formData.append("image", formStore.selectedImage);
+  formData.append("audio", formStore.audio);
+  formData.append("artistName", formStore.artistName);
+  formData.append("artistBirthYear", formStore.artistBirthYear);
+  formData.append("artistStatement", formStore.artistStatement);
+  formData.append("title", formStore.title);
+  formData.append("medium", formStore.medium);
+  formData.append("details", formStore.details);
+
+  try {
+    const result = $fetch("/api/exhibit", {
+      method: "POST",
+      body: formData,
+    });
+    console.log(result);
+    navigateTo("/gallery");
+  } catch (error) {
+    console.error(error);
+  }
+};
 </script>
 
 <template>
   <div class="flex gap-4 w-full">
     <main class="flex-1">
-      <FormKit type="form" :actions="false">
+      <FormKit type="form" :actions="false" @submit="handleFormSubmit">
         <FormKit type="multi-step" tab-style="progress">
           <ArtistInfoForm />
           <ExhibitDetailsForm />
@@ -27,7 +51,7 @@ const imageObjectUrl = computed(() => {
           :artist="formStore.artistName"
           :artistBirthYear="formStore.artistBirthYear"
           :title="formStore.title"
-          :audio="formStore.audio"
+          :audio="formStore.audioSrc"
           :medium="formStore.medium"
           :details="formStore.details"
           :statement="formStore.artistStatement"

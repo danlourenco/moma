@@ -7,9 +7,6 @@ onMounted(() => {
 
   imageUploadNode.on("commit", ({ payload }) => {
     formStore.selectedImage = payload[0].file;
-    // const file = payload[0].file;
-    // selectedImage.value = file;
-    // toBase64(file).then((res) => (selectedImageDataUrl.value = res));
   });
 });
 </script>

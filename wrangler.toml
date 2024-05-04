@@ -35,6 +35,10 @@ binding = "DB"
 database_name = "preview-moma-gallery"
 database_id = "270cbedd-aa0a-44f0-83e1-4ec001bb6c01"
 
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "preview-moma-gallery"
+
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
 # Docs: https://developers.cloudflare.com/workers/runtime-apis/durable-objects
