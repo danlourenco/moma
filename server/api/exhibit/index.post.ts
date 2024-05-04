@@ -27,21 +27,21 @@ export default defineEventHandler(async (event) => {
   const audio = formData.get("audio") as File;
   const title = formData.get("title") as string;
   const medium = formData.get("medium") as string;
-  console.log("imageName: ", image.name);
-  console.log("audio name: ", audio);
+  consola.box({
+    image,
+    audio,
+  });
+
   const imagePutResponse = await event.context.cloudflare.env.BUCKET.put(
     generateNewFileName(uuid, image),
     image
   );
-
-  console.log({ imagePutResponse });
 
   const audioPutResponse = await event.context.cloudflare.env.BUCKET.put(
     generateNewFileName(uuid, audio),
     audio
   );
 
-  console.log({ audioPutResponse });
   const { success } = await event.context.cloudflare.env.DB.prepare(
     `
     insert into exhibits (

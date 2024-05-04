@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "npm run build && wrangler pages dev",
+    "preview": "npm run build && wrangler pages dev --r2=BUCKET",
     "postinstall": "nuxt prepare",
     "deploy": "npm run build && wrangler pages deploy",
     "db:bootstrap:local": "npx wrangler d1 execute preview-moma-gallery --local --file=./schema.sql",
