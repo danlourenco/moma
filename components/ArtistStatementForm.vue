@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { Howl } from "howler";
-const sound = new Howl({
-  src: ["jeopardy.mp3"],
-  html5: true,
-  loop: true,
-});
-
 const formStore = useFormStore();
 
 const handleGenerateAudio = async () => {
-  sound.play();
+  // sound.play();
   await formStore.generateAudio();
-  sound.fade(1, 0, 2000);
+  // sound.fade(1, 0, 2000);
 };
 </script>
 
