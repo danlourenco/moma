@@ -2,13 +2,10 @@
   <div>
     <h1>About</h1>
     <main class="flex flex-row gap-4">
-      <NuxtImg
+      <img
         src="/images/Rui.jpg"
         alt="RA Lourenço demonstrating holding up his artwork and smiling"
-        sizes="30vw sm:50vw md:400px"
-        :modifiers="{ rotate: 90 }"
-        class="-rotate-1 drop-shadow-2xl"
-        preload
+        class="-rotate-1 drop-shadow-2xl w-1/4 min-w-[300px]"
       />
       <p>
         The Museum of Munchkin Art is a collection of art created by this kiddo.
