@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  nitro: {
+    preset: "netlify-edge",
+  },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
