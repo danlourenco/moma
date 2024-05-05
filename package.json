@@ -6,13 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "npm run build && wrangler pages dev --r2=BUCKET",
-    "postinstall": "nuxt prepare",
-    "deploy": "npm run build && wrangler pages deploy",
-    "db:bootstrap:local": "npx wrangler d1 execute preview-moma-gallery --local --file=./schema.sql",
-    "db:bootstrap:preview": "npx wrangler d1 execute preview-moma-gallery --remote --file=./schema.sql",
-    "db:validate": "npx wrangler d1 execute preview-moma-gallery --local --command='SELECT * FROM exhibits'",
-    "cf-typegen": "wrangler types"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@formkit/addons": "^1.6.2",
@@ -37,7 +31,6 @@
     "@types/howler": "^2.2.11",
     "@types/uuid": "^9.0.8",
     "daisyui": "^4.10.2",
-    "nitro-cloudflare-dev": "^0.1.4",
-    "wrangler": "^3.52.0"
+    "nitro-cloudflare-dev": "^0.1.4"
   }
 }
