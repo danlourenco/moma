@@ -31,7 +31,6 @@ const srcUrls = {
         :audio="srcUrls.audio"
         :statement="props.exhibitData.artist_statement"
         :artist="props.exhibitData.artist"
-        :artist-birth-year="2021"
         :medium="props.exhibitData.medium"
         :title="props.exhibitData.title"
         :year="props.exhibitData.year"
