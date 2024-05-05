@@ -1,8 +1,6 @@
 import { consola } from "consola";
 
 export default defineEventHandler(async (event) => {
-  consola.info(event.context.cloudflare.env);
-
   const config = useRuntimeConfig(event);
   const { text } = await readBody(event);
 
