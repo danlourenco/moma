@@ -11,9 +11,8 @@
         preload
       />
       <p>
-        The Museum of Munchkin Art is a collection of art created by munchkins.
-        Munchkins are small creatures that live in the forest. They are known
-        for their love of art and their ability to create beautiful things.
+        The Museum of Munchkin Art is a collection of art created by this kiddo.
+        More info coming soon.
       </p>
     </main>
   </div>
