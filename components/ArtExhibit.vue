@@ -7,11 +7,11 @@ interface Props {
 const props = defineProps<Props>();
 
 const srcUrls = {
-  image: `${useRuntimeConfig().public.R2_BUCKET_BASE_URL}/${
+  image: `${useRuntimeConfig().public.r2BucketBaseUrl}/${
     props.exhibitData.image_key
   }`,
   audio: props.exhibitData.audio_key
-    ? `${useRuntimeConfig().public.R2_BUCKET_BASE_URL}/${
+    ? `${useRuntimeConfig().public.r2BucketBaseUrl}/${
         props.exhibitData.audio_key
       }`
     : null,

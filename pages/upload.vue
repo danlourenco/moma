@@ -30,6 +30,8 @@ const handleFormSubmit = async (data) => {
     navigateTo("/gallery");
   } catch (error) {
     console.error(error);
+  } finally {
+    formStore.$reset();
   }
 };
 </script>
