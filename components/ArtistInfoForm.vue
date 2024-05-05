@@ -11,14 +11,14 @@ const formStore = useFormStore();
         label="Artist name"
         validation="required"
       />
-      <FormKit
+      <!-- <FormKit
         type="number"
         v-model="formStore.artistBirthYear"
         name="artistBirthYear"
         label="Artist Birth Year"
         min="1900"
         max="2024"
-      />
+      /> -->
     </div>
   </FormKit>
 </template>

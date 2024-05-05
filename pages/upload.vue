@@ -8,7 +8,6 @@ const imageObjectUrl = computed(() => {
 });
 
 const handleFormSubmit = async (data) => {
-  console.log(data);
   const formData = new FormData();
   formData.append("image", formStore.selectedImage);
   formData.append("audio", formStore.audio);
@@ -19,14 +18,12 @@ const handleFormSubmit = async (data) => {
   formData.append("medium", formStore.medium);
   formData.append("details", formStore.details);
 
-  console.info(formData);
   try {
     const result = await $fetch(`/exhibits`, {
       method: "POST",
       body: formData,
       baseURL: useRuntimeConfig().public.baseApiUrl,
     });
-    console.log(result);
     navigateTo("/gallery");
   } catch (error) {
     console.error(error);
