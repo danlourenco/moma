@@ -2,12 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  nitro: {
-    preset: "cloudflare-pages",
-  },
-
   modules: [
-    "nitro-cloudflare-dev",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
     "@nuxt/image",
