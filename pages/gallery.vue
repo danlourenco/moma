@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ExhibitsApiResponse } from "~/types/index";
 import { ArrowRightIcon } from "@heroicons/vue/24/solid";
-import { Howl } from "howler";
 
 const { data, pending, error } = useFetch<ExhibitsApiResponse>("/exhibits", {
   baseURL: useRuntimeConfig().public.baseApiUrl,
