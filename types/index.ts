@@ -11,5 +11,5 @@ export interface Exhibit {
 }
 
 export interface ExhibitsApiResponse {
-  results: Exhibit[];
+  data: Exhibit[];
 }

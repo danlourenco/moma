@@ -13,16 +13,18 @@ const handleFormSubmit = async (data) => {
   formData.append("image", formStore.selectedImage);
   formData.append("audio", formStore.audio);
   formData.append("artistName", formStore.artistName);
-  formData.append("artistBirthYear", formStore.artistBirthYear);
+  // formData.append("artistBirthYear", formStore.artistBirthYear);
   formData.append("artistStatement", formStore.artistStatement);
   formData.append("title", formStore.title);
   formData.append("medium", formStore.medium);
   formData.append("details", formStore.details);
 
+  console.info(formData);
   try {
-    const result = $fetch("/api/exhibit", {
+    const result = await $fetch(`/exhibits`, {
       method: "POST",
       body: formData,
+      baseURL: useRuntimeConfig().public.baseApiUrl,
     });
     console.log(result);
     navigateTo("/gallery");

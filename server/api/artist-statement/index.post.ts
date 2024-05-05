@@ -1,5 +1,3 @@
-// import { OpenAIStream, StreamingTextResponse } from "ai";
-import { OpenAIStream } from "ai";
 import OpenAI from "openai";
 import { prompts } from "~/utils/prompts";
 
