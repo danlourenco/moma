@@ -5,7 +5,7 @@
     >
       <div>
         <NuxtImg
-          src="/images/Rui.jpg"
+          src="/images/rui.jpg"
           alt="RA Lourenço demonstrating holding up his artwork and smiling"
           class="-rotate-1 shadow-2xl"
           sizes="10vw"
