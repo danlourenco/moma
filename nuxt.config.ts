@@ -25,6 +25,10 @@ export default defineNuxtConfig({
       "Libre+Franklin": true,
     },
   },
+
+  image: {
+    provider: "netlify",
+  },
   runtimeConfig: {
     openaiApiKey: "",
     elevenLabsKey: "",
