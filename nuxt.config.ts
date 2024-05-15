@@ -26,9 +26,6 @@ export default defineNuxtConfig({
     },
   },
 
-  image: {
-    provider: "ipx",
-  },
   runtimeConfig: {
     openaiApiKey: "",
     elevenLabsKey: "",

@@ -30,7 +30,6 @@
     "@tailwindcss/typography": "^0.5.13",
     "@types/uuid": "^9.0.8",
     "daisyui": "^4.10.2",
-    "nitro-cloudflare-dev": "^0.1.4",
-    "sharp": "^0.33.3"
+    "nitro-cloudflare-dev": "^0.1.4"
   }
 }
